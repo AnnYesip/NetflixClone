@@ -95,7 +95,7 @@ final class RegistrationViewController: UIViewController {
         button.backgroundColor = .redColor
         button.titleLabel?.font = .boldSystemFont(ofSize: 20)
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8.0
+        button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(
             self,
@@ -109,7 +109,7 @@ final class RegistrationViewController: UIViewController {
         let button = UIButton()
         button.setTitle("I don't have an account", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = 8.0
+        button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(
             self,
@@ -154,7 +154,6 @@ final class RegistrationViewController: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            
         ])
         contentView.addSubview(stackView)
     }

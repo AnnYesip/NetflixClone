@@ -31,7 +31,7 @@ extension DownloadsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        return view.frame.height / 4.3
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

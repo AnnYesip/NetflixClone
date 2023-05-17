@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "SN-2-removebg-preview-1024.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Netflix_2015_N_logo.svg-60@2x.png",
+      "filename" : "SN-2-removebg-preview-83.5@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "SN-2-removebg-preview-60@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -23,8 +23,8 @@ final class SearchResultViewController: UIViewController {
             collectionViewLayout: layout
         )
         resultCollectionView.register(
-            TitleCollectionViewCell.self,
-            forCellWithReuseIdentifier: TitleCollectionViewCell.identifier
+            HomeScreenPosterCollectionViewCell.self,
+            forCellWithReuseIdentifier: HomeScreenPosterCollectionViewCell.identifier
         )
         resultCollectionView.backgroundColor = .blackBackgroundColor
         return resultCollectionView

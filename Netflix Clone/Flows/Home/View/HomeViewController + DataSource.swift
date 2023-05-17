@@ -19,9 +19,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: CollectionViewTableViewCell.identifier,
+            withIdentifier: HomeViewTableViewCell.identifier,
             for: indexPath
-        ) as? CollectionViewTableViewCell else { return UITableViewCell()  }
+        ) as? HomeViewTableViewCell else { return UITableViewCell()  }
         
         cell.delegate = self
         let section = indexPath.section
@@ -45,7 +45,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return view.frame.height / 4
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -62,7 +62,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             height: header.bounds.height
         )
         header.textLabel?.textColor = .white
-        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
+        header.textLabel?.text = header.textLabel?.text?.capitalized
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

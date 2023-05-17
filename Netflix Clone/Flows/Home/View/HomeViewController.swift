@@ -14,11 +14,11 @@ final class HomeViewController: UIViewController {
     weak var coordinator: TabCoordinator?
     let viewModel: HomeViewModelProtocol = HomeViewModel()
     
-    private let homeFeedTable: UITableView = {
+    private let homeFilmsTableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(
-            CollectionViewTableViewCell.self,
-            forCellReuseIdentifier: CollectionViewTableViewCell.identifier
+            HomeViewTableViewCell.self,
+            forCellReuseIdentifier: HomeViewTableViewCell.identifier
         )
         table.backgroundColor = .blackBackgroundColor
         return table
@@ -27,18 +27,19 @@ final class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(homeFeedTable)
+        view.addSubview(homeFilmsTableView)
         
-        homeFeedTable.delegate = self
-        homeFeedTable.dataSource = self
+        homeFilmsTableView.delegate = self
+        homeFilmsTableView.dataSource = self
         
         configurateNavBar()
         configureHeaderView()
+        // TODO: check internet connection
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        homeFeedTable.frame = view.bounds
+        homeFilmsTableView.frame = view.bounds
     }
     
     // MARK: - NavigationBar
@@ -70,31 +71,47 @@ final class HomeViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.standardAppearance.backgroundColor = .blackBackgroundColor
-        navigationController?.navigationItem.hidesBackButton = false
-        
     }
+    
+    private func setupHeaderBackground(navColor: UIColor) {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = navColor
+        appearance.shadowColor = .clear
+        appearance.backgroundEffect = UIBlurEffect(style: .dark)
+        self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+    
     
     // MARK: - Header View
     
     private func configureHeaderView() {
         headerView = HeroHeaderUIView(
-            frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450)
+            frame: CGRect(x: 0, y: -50, width: view.bounds.width, height: 500)
         )
-        homeFeedTable.tableHeaderView = headerView
+        homeFilmsTableView.tableHeaderView = headerView
         featchMoviewForHeagerView()
     }
     
     func featchMoviewForHeagerView() { 
         viewModel.featchMoviewForHeagerView { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let titles):
                 let randomTitle = titles.randomElement()
-                self?.randomTrandingMovie = randomTitle
-                self?.headerView?.configure(
+                self.randomTrandingMovie = randomTitle
+                self.headerView?.configure(
                     with: TitleViewModel(
                         posterURL: randomTitle?.poster_path ?? " ",
                         posterLabel: randomTitle?.original_title ?? " -- "
-                    )
+                    ), complition: { result in
+                        switch result {
+                        case .success(let navColor):
+                            self.setupHeaderBackground(navColor: navColor)
+                        case .failure(let failure):
+                            print(failure)
+                        }
+                    }
                 )
             case .failure(let error):
                 print(error.localizedDescription)
@@ -114,7 +131,7 @@ final class HomeViewController: UIViewController {
 
 // MARK: - extension
 extension HomeViewController: CollectionViewTableViewCellProtocol {
-    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, model: MovieDetailsModel) {
+    func collectionViewTableViewCellDidTapCell(_ cell: HomeViewTableViewCell, model: MovieDetailsModel) {
         DispatchQueue.main.async { [weak self] in
             self?.coordinator?.showMovieDetailViewController(viewModel: MovieDetailsViewModel(), model: model)
         }

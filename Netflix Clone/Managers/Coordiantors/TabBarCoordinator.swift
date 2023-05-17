@@ -76,7 +76,7 @@ class TabCoordinator: NSObject, Coordinator {
     private func getTabController(_ page: TabBarPage) -> UINavigationController {
         let navController = UINavigationController()
 
-        navController.tabBarItem = UITabBarItem.init(
+        navController.tabBarItem = UITabBarItem(
             title: page.pageTitleValue(),
             image: UIImage(systemName: page.pageTabBarImageName()),
             tag: page.pageOrderNumber()
@@ -108,14 +108,14 @@ class TabCoordinator: NSObject, Coordinator {
         return navController
     }
     
-    func currentPage() -> TabBarPage? { TabBarPage.init(index: tabBarController.selectedIndex) }
+    func currentPage() -> TabBarPage? { TabBarPage(index: tabBarController.selectedIndex) }
 
     func selectPage(_ page: TabBarPage) {
         tabBarController.selectedIndex = page.pageOrderNumber()
     }
     
     func setSelectedIndex(_ index: Int) {
-        guard let page = TabBarPage.init(index: index) else { return }
+        guard let page = TabBarPage(index: index) else { return }
         
         tabBarController.selectedIndex = page.pageOrderNumber()
     }

@@ -33,7 +33,7 @@ class AppCoordinator: AppCoordinatorProtocol {
         
     func showLoginFlow() {
         // Implementation of Login FLow
-        let loginCoordinator = LoginCoordinator.init(navigationController)
+        let loginCoordinator = LoginCoordinator(navigationController)
         loginCoordinator.finishDelegate = self
         loginCoordinator.start()
         childCoordinators.append(loginCoordinator)
@@ -41,7 +41,7 @@ class AppCoordinator: AppCoordinatorProtocol {
 
     func showMainFlow() {
         // Implementation Main (Tab bar) FLow
-        let tabCoordinator = TabCoordinator.init(navigationController)
+        let tabCoordinator = TabCoordinator(navigationController)
         tabCoordinator.finishDelegate = self
         tabCoordinator.start()
         childCoordinators.append(tabCoordinator)
