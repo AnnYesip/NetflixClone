@@ -70,8 +70,8 @@ final class HomeViewController: UIViewController {
         ]
         
         navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.standardAppearance.backgroundColor = .blackBackgroundColor
     }
+
     
     private func setupHeaderBackground(navColor: UIColor) {
         let appearance = UINavigationBarAppearance()
@@ -80,6 +80,7 @@ final class HomeViewController: UIViewController {
         appearance.shadowColor = .clear
         appearance.backgroundEffect = UIBlurEffect(style: .dark)
         self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance.backgroundColor = navColor.withAlphaComponent(0.5)
     }
     
     

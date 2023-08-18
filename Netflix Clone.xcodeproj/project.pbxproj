@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0495F7192A8FB8000038982C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0495F7182A8FB8000038982C /* GoogleService-Info.plist */; };
 		0499E72C2A03E2380097BA1B /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0499E72B2A03E2380097BA1B /* NetworkReachability.swift */; };
 		049C99FE29FF041C00EA5C23 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 049C99FD29FF041C00EA5C23 /* ColorKit */; };
-		04DA2C322970C5230009920A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04DA2C312970C5230009920A /* GoogleService-Info.plist */; };
 		04DA2C342971B5FE0009920A /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA2C332971B5FE0009920A /* RegistrationViewModel.swift */; };
 		04EAA7002986FD5C0026E5EF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAA6FF2986FD5C0026E5EF /* ProfileViewController.swift */; };
 		04EAA7032987007C0026E5EF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAA7022987007C0026E5EF /* HomeViewModel.swift */; };
@@ -55,8 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0495F7182A8FB8000038982C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0499E72B2A03E2380097BA1B /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
-		04DA2C312970C5230009920A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04DA2C332971B5FE0009920A /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		04EAA6FF2986FD5C0026E5EF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		04EAA7022987007C0026E5EF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				959C293D28EB5E3400BF3723 /* NetflixCloneModel.xcdatamodeld */,
-				04DA2C312970C5230009920A /* GoogleService-Info.plist */,
+				0495F7182A8FB8000038982C /* GoogleService-Info.plist */,
 				874991F028A92A2800F9ED0C /* Info.plist */,
 				874991EB28A92A2800F9ED0C /* Assets.xcassets */,
 				874991ED28A92A2800F9ED0C /* LaunchScreen.storyboard */,
@@ -520,7 +520,7 @@
 			files = (
 				874991EF28A92A2800F9ED0C /* LaunchScreen.storyboard in Resources */,
 				874991EC28A92A2800F9ED0C /* Assets.xcassets in Resources */,
-				04DA2C322970C5230009920A /* GoogleService-Info.plist in Resources */,
+				0495F7192A8FB8000038982C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,13 +753,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X9LNK3JW8C;
+				DEVELOPMENT_TEAM = RVNP2HHLC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Netflix Clone/Application/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -769,6 +769,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yesip.Netflix-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -784,13 +787,13 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = X9LNK3JW8C;
+				DEVELOPMENT_TEAM = RVNP2HHLC6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Netflix Clone/Application/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -800,6 +803,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "yesip.Netflix-Clone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

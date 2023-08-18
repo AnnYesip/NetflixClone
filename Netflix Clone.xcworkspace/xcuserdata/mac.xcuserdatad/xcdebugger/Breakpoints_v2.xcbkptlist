@@ -3,4 +3,70 @@
    uuid = "A813C4E1-A970-4985-B25F-D12A4101FED2"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9E583E26-669D-422A-AC9C-06EAE6106BC0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Netflix Clone/Flows/Login/RegistrationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "handleSignUp()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "49F90DF9-A4D6-4DF3-8C99-AF9F99AE8236"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Netflix Clone/Flows/Login/RegistrationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "handleSignUp()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "49F90DF9-A4D6-4DF3-8C99-AF9F99AE8236 - beeee6b66c9eeba5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Netflix_Clone.RegistrationViewController.handleSignUp() -&gt; ()"
+                  moduleName = "Netflix Clone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/NetflixClone/Netflix%20Clone/Flows/Login/RegistrationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "511">
+               </Location>
+               <Location
+                  uuid = "49F90DF9-A4D6-4DF3-8C99-AF9F99AE8236 - 9e73a7f075698c22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;__C.FIRAuthDataResult, Netflix_Clone.RegistrationViewModel.Reason&gt;) -&gt; () in Netflix_Clone.RegistrationViewController.handleSignUp() -&gt; ()"
+                  moduleName = "Netflix Clone"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/NetflixClone/Netflix%20Clone/Flows/Login/RegistrationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "184"
+                  endingLineNumber = "184"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

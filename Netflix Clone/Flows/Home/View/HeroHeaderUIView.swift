@@ -32,24 +32,27 @@ final class HeroHeaderUIView: UIView {
 
     private let playButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Play", for: .normal)
-//        button.layer.borderColor = UIColor.whiteColor.cgColor
-        button.backgroundColor = .whiteColor
+        button.setTitle(" Play", for: .normal)
+        button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        button.tintColor = .blackBackgroundColor
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        button.backgroundColor = .whiteColor.withAlphaComponent(0.8)
         button.setTitleColor(.blackBackgroundColor, for: .normal)
-//        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 3
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private let downloadButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Download", for: .normal)
-//        button.layer.borderColor = UIColor.whiteColor.cgColor
-        button.backgroundColor = .whiteColor
+        button.setTitle(" Download", for: .normal)
+        let configuration = UIImage.SymbolConfiguration(weight: .semibold)
+        button.setImage(UIImage(systemName: "plus", withConfiguration: configuration), for: .normal)
+        button.tintColor = .blackBackgroundColor
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
+        button.backgroundColor = .whiteColor.withAlphaComponent(0.8)
         button.setTitleColor(.blackBackgroundColor, for: .normal)
-//        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 5
+        button.layer.cornerRadius = 3
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -102,20 +105,21 @@ final class HeroHeaderUIView: UIView {
     
     private func setupPlayButtonConstraints() {
         NSLayoutConstraint.activate([
-            playButton.leadingAnchor.constraint(equalTo: homeViewPosterImageView.leadingAnchor, constant: 70),
+            playButton.leadingAnchor.constraint(equalTo: homeViewPosterImageView.leadingAnchor, constant: 40),
             playButton.bottomAnchor.constraint(equalTo: homeViewPosterImageView.bottomAnchor, constant:  -5),
-            playButton.widthAnchor.constraint(equalTo: homeViewPosterImageView.widthAnchor, multiplier: 0.27)
+            playButton.widthAnchor.constraint(equalTo: homeViewPosterImageView.widthAnchor, multiplier: 0.35),
+            playButton.heightAnchor.constraint(equalToConstant: 33)
         ])
     }
     
     private func setupDownloadButtonConstraints() {
         NSLayoutConstraint.activate([
-            downloadButton.trailingAnchor.constraint(equalTo: homeViewPosterImageView.trailingAnchor, constant: -70),
+            downloadButton.trailingAnchor.constraint(equalTo: homeViewPosterImageView.trailingAnchor, constant: -40),
             downloadButton.bottomAnchor.constraint(equalTo: homeViewPosterImageView.bottomAnchor, constant:  -5),
-            downloadButton.widthAnchor.constraint(equalTo: homeViewPosterImageView.widthAnchor, multiplier: 0.27)
+            downloadButton.widthAnchor.constraint(equalTo: homeViewPosterImageView.widthAnchor, multiplier: 0.35),
+            downloadButton.heightAnchor.constraint(equalTo: playButton.heightAnchor)
         ])
     }
-    
     // MARK: - Config gradient
     private func addGradient(complition: @escaping (Result<UIColor, Error>) -> Void) {
         do {
@@ -126,20 +130,11 @@ final class HeroHeaderUIView: UIView {
         }
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
-//            UIColor.blackBackgroundColor.cgColor,
             heroImageViewDominantColor.first?.cgColor,
             heroImageViewDominantColor[1].cgColor,
             heroImageViewDominantColor[2].cgColor,
             UIColor.blackBackgroundColor.cgColor
         ]
-        
-//        UserDefaults.standard.set(heroImageViewDominantColor.first?.cgColor, forKey: "navColor")
-        downloadButton.backgroundColor = heroImageViewDominantColor.first
-        downloadButton.setTitleColor(heroImageViewDominantColor.last, for: .normal)
-        
-        playButton.backgroundColor = heroImageViewDominantColor.first
-        playButton.setTitleColor(heroImageViewDominantColor.last, for: .normal)
-        
         
         gradientLayer.frame = bounds
         gradientLayer.zPosition = -1
@@ -172,33 +167,3 @@ final class HeroHeaderUIView: UIView {
     
 }
 
-
-
-extension UserDefaults {
-  func colorForKey(key: String) -> UIColor? {
-    var colorReturnded: UIColor?
-    if let colorData = data(forKey: key) {
-      do {
-        if let color = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor {
-          colorReturnded = color
-        }
-      } catch {
-        print("Error UserDefaults")
-      }
-    }
-    return colorReturnded
-  }
-  
-  func setColor(color: UIColor?, forKey key: String) {
-    var colorData: NSData?
-    if let color = color {
-      do {
-        let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) as NSData?
-        colorData = data
-      } catch {
-        print("Error UserDefaults")
-      }
-    }
-    set(colorData, forKey: key)
-  }
-}
