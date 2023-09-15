@@ -8,7 +8,7 @@
 import UIKit
 import ColorKit
 
-final class HeroHeaderUIView: UIView {
+final class HeaderPosterUIView: UIView {
     private var  heroImageViewDominantColor: [UIColor] = [.whiteColor]
     
     // MARK: - init UI
@@ -36,7 +36,7 @@ final class HeroHeaderUIView: UIView {
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
         button.tintColor = .blackBackgroundColor
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
-        button.backgroundColor = .whiteColor.withAlphaComponent(0.8)
+        button.backgroundColor = .whiteColor.withAlphaComponent(0.9)
         button.setTitleColor(.blackBackgroundColor, for: .normal)
         button.layer.cornerRadius = 3
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +50,7 @@ final class HeroHeaderUIView: UIView {
         button.setImage(UIImage(systemName: "plus", withConfiguration: configuration), for: .normal)
         button.tintColor = .blackBackgroundColor
         button.titleLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
-        button.backgroundColor = .whiteColor.withAlphaComponent(0.8)
+        button.backgroundColor = .whiteColor.withAlphaComponent(0.9)
         button.setTitleColor(.blackBackgroundColor, for: .normal)
         button.layer.cornerRadius = 3
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -66,6 +66,24 @@ final class HeroHeaderUIView: UIView {
         setupHeroImageViewConstraints()
         setupPlayButtonConstraints()
         setupDownloadButtonConstraints()
+        
+        addParallaxToView(vw: contentView)
+    }
+    
+    func addParallaxToView(vw: UIView) { //TODO:  needToTest
+        let amount = 100
+
+        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        horizontal.minimumRelativeValue = -amount
+        horizontal.maximumRelativeValue = amount
+
+        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        vertical.minimumRelativeValue = -amount
+        vertical.maximumRelativeValue = amount
+
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontal, vertical]
+        vw.addMotionEffect(group)
     }
     
     required init?(coder: NSCoder) {

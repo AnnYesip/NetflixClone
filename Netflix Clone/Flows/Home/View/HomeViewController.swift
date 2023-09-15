@@ -10,7 +10,7 @@ import UIKit
 final class HomeViewController: UIViewController {
     
     private var randomTrandingMovie: Title?
-    private var headerView: HeroHeaderUIView?
+    private var headerView: HeaderPosterUIView?
     weak var coordinator: TabCoordinator?
     let viewModel: HomeViewModelProtocol = HomeViewModel()
     
@@ -87,7 +87,7 @@ final class HomeViewController: UIViewController {
     // MARK: - Header View
     
     private func configureHeaderView() {
-        headerView = HeroHeaderUIView(
+        headerView = HeaderPosterUIView(
             frame: CGRect(x: 0, y: -50, width: view.bounds.width, height: 500)
         )
         homeFilmsTableView.tableHeaderView = headerView

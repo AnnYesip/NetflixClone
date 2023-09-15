@@ -10,6 +10,7 @@ import Foundation
 protocol MovieDetailsViewModelProtocol {
     func fetchMovieDetails(id: Int, complition: @escaping (Result<MovieDetails, Error>) -> Void)
     func searchTrailer(movie name: String, complition: @escaping (Result<URL, Error>) -> Void)
+    func findGenre(movie: MovieDetails) -> String
 }
 
 final class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
@@ -55,6 +56,23 @@ final class MovieDetailsViewModel: MovieDetailsViewModelProtocol {
         }
         
         
+    }
+    
+    func findGenre(movie: MovieDetails) -> String {
+        let genreArray = movie.genres.map({ (genre: Genre) -> String in
+            genre.name
+        })
+        
+        var genreString = ""
+        for element in genreArray {
+            if element == genreArray.last {
+                genreString += "\(element)"
+            } else {
+                genreString += "\(element), "
+            }
+            
+          }
+        return genreString
     }
     
     

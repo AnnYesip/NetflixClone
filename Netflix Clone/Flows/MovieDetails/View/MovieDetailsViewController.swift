@@ -57,6 +57,15 @@ final class MovieDetailsViewController: UIViewController {
         return label
     }()
     
+    private let genreLabel: UILabel = {
+        let genre = UILabel()
+        genre.textColor = .darkGreyColor
+        genre.font = .systemFont(ofSize: 15, weight: .semibold)
+        genre.translatesAutoresizingMaskIntoConstraints = false
+        genre.numberOfLines = 0
+        return genre
+    }()
+    
     private let imdbImage: UIImageView = {
         let imdb = UIImageView()
         imdb.contentMode = .scaleAspectFill
@@ -127,6 +136,7 @@ final class MovieDetailsViewController: UIViewController {
         setupNoResultPicture()
         setupNoResultLabel()
         setupTitleLabel()
+        setupGenreLabel()
         setupIMDBImage()
         setupRatingLabel()
         setupOverviewLabel()
@@ -168,6 +178,7 @@ final class MovieDetailsViewController: UIViewController {
             self.noResultPicture.isHidden = false
             self.noResultLabel.isHidden = false
             self.titleLabel.isHidden = true
+            self.genreLabel.isHidden = true
             self.imdbImage.isHidden = true
             self.ratingLabel.isHidden = true
             self.overviewLabel.isHidden = true
@@ -178,9 +189,12 @@ final class MovieDetailsViewController: UIViewController {
     // MARK: - setupUI
     private func setupUI(with movie: MovieDetails) {
         DispatchQueue.main.async { [weak self] in
-            self?.titleLabel.text = movie.title
-            self?.overviewLabel.text = movie.overview
-            self?.ratingLabel.text = "\(Float(movie.voteAverage))"
+            guard let self = self else { return }
+            self.titleLabel.text = movie.title
+            self.overviewLabel.text = movie.overview
+            self.ratingLabel.text = "\(Float(movie.voteAverage))"
+            self.genreLabel.text = viewModel.findGenre(movie: movie)
+            
         }
     }
     
@@ -200,6 +214,7 @@ final class MovieDetailsViewController: UIViewController {
         contentView.addSubview(noResultPicture)
         contentView.addSubview(noResultLabel)
         contentView.addSubview(titleLabel)
+        contentView.addSubview(genreLabel)
         contentView.addSubview(imdbImage)
         contentView.addSubview(ratingLabel)
         contentView.addSubview(overviewLabel)
@@ -242,9 +257,17 @@ final class MovieDetailsViewController: UIViewController {
         ])
     }
     
+    private func setupGenreLabel() {
+        NSLayoutConstraint.activate([
+            genreLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            genreLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            genreLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8)
+        ])
+    }
+    
     private func setupIMDBImage() {
         NSLayoutConstraint.activate([
-            imdbImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
+            imdbImage.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: 15),
             imdbImage.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             imdbImage.widthAnchor.constraint(equalToConstant: 20),
             imdbImage.heightAnchor.constraint(equalToConstant: 20)
